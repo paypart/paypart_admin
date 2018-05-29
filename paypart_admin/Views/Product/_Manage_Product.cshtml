@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div id="div-manage-fee">
+    <div id="div-manage-fee-form" class="panel panel-default" style="display:normal;">
+        <div class="panel-heading">
+            <label id="label-manage-fee-panel-heading">Edit Fee By Term &amp; Class</label>
+        </div>
+        <div class="panel-body">
+            <form role="form" id="form-manage-fee" action="" name="form-manage-fee">
+                <fieldset>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Service Category</label>
+                            <select id="ddlManageSC" class="form-control" name="ddlManageSC">
+                                <option value="0">Select Service Category</option>
+                            </select>
+                            <label id="lblManageSC"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Service</label>
+                            <select id="ddlManageService" class="form-control" name="ddlManageService">
+                                <option value="0">Select Service</option>
+                            </select>
+                            <label id="lblManageService"></label>
+                        </div>
+                    </div>
+                    <div id="div-manage-item-list" style="display:none;">
+                        <div class="row" style="min-height:80px;">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Item Name</label>
+                                    <input type="text" id="txtItemEditName" class="form-control" name="txtItemEditName" />
+                                    <label id="lblItemEditName"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Item Cost</label>
+                                    <input type="number" id="txtItemEditCost" class="form-control" name="txtItemEditCost" />
+                                    <label id="lblItemEditCost"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Currency</label>
+                                    <select id="ddlEditCurrency" class="form-control" name="ddlEditCurrency">
+                                        <option value="0">Select Currency</option>
+                                        <option value="NGN">Naira</option>
+                                        <option value="USD">US Dollars</option>
+                                    </select>
+                                    <label id="lblEditCurrency"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Item Cost</label><br />
+                                    <input type="button" id="btnAddItemEdit" class="btn btn-default" value="Add Item" name="btnAddItemEdit" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="min-height:100px;display:none;" id="div-edit-item-list">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label style="visibility:hidden;" id="lblEditItemList">Item List</label>
+                                    <table id="tblEditItemFees" class="table table-striped">
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Cost</th>
+                                            <th align="right"></th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="min-height:80px;">
+                            <div class="col-md-12">
+                                <div class="form-group text-right">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

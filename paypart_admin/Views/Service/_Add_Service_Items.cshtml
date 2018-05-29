@@ -1,0 +1,169 @@
+﻿@model paypart_admin.ViewModels.ServiceItemsViewModel
+@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "New Biller";
+}
+<div id="div-new-fee">
+    <div id="div-fee-form" class="panel panel-default" style="display:normal;">
+        <div class="panel-heading">
+            <label id="label-fee-panel-heading">Add items to service</label>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="min-height:80px;">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Services</label>
+                        <select id="ddlServices" class="form-control" name="services">
+                            <option value="0">Select Service</option>
+                        </select>
+                        <label id="lblIServices"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="content" style="display:none;" id="div-content">
+                <ul class="nav nav-tabs">
+                    <li class="active" id="costitems"><a href="#">Cost Items</a></li>
+                    <li id="formitems"><a href="#">Form Items</a></li>
+                </ul>
+                <form role="form" id="form-new-service-items" action="" name="form-new-service-items">
+                    <fieldset>
+                        <div class="row" style="min-height:80px;" id="div-add-item">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Item Name</label>
+                                    <input type="text" id="txtItemName" class="form-control" name="costitems.name" />
+                                    <label id="lblItemName"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Item Cost</label>
+                                    <input type="number" id="txtItemCost" class="form-control" name="costitems.cost" />
+                                    <label id="lblItemCost"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Currency</label>
+                                    <select id="ddlCurrency" class="form-control" name="costitems.currency">
+                                        <option value="0">Select Currency</option>
+                                        <option value="NGN">Naira</option>
+                                        <option value="USD">US Dollars</option>
+                                    </select>
+                                    <label id="lblCurrency"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Mandate</label>
+                                    <select id="ddlPaymandate" class="form-control" name="costitems.mandate">
+                                        <option value="0">Select Payment Mandate</option>
+                                        <option value="1">Must pay right away</option>
+                                        <option value="2">Can pay later</option>
+                                    </select>
+                                    <label id="lblPaymandate"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label style="visibility:hidden;">Cost Items</label><br />
+                                    <input type="button" id="btnAddItem" class="btn btn-default" value="Add Item" name="btnAddItem" />
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="min-height:100px;display:none;" id="div-item-list">
+                                <div class="form-group">
+                                    <label style="visibility:hidden;" id="lblItemList">Item List</label>
+                                    <table id="tblCostItems" class="table table-striped" name="itemtables">
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Cost</th>
+                                            <th>Mandate</th>
+                                            <th align="right"></th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="min-height:80px;">
+                                <div class="form-group text-right">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <form role="form" id="form-new-service-forms" action="" name="form-new-service-forms">
+                    <fieldset>
+                        <div class="row" style="display:none;min-height:80px" id="div-add-fields">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Label</label>
+                                    <input type="text" id="field" class="form-control" name="field" />
+                                    <label id="lblfield"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Value</label>
+                                    <input type="text" id="value" class="form-control" name="value" />
+                                    <label id="lblvalue"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <select id="ftype" class="form-control" name="ftype">
+                                        <option value="0">Select Field Type</option>
+                                        <option value="1">Numeric</option>
+                                        <option value="2">Text</option>
+                                        <option value="3">Email</option>
+                                        <option value="4">List</option>
+                                    </select>
+                                    <label id="lblType"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Mandate</label>
+                                    <select id="mandate" class="form-control" name="mandate">
+                                        <option value="0">Select Mandate</option>
+                                        <option value="1">Mandatory</option>
+                                        <option value="2">Optional</option>
+                                    </select>
+                                    <label id="lblmandate"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label style="visibility:hidden;">Form Items</label><br />
+                                    <input type="button" id="btnAddField" class="btn btn-default" value="Add Field" name="btnAddField" />
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="min-height:100px;display:none;" id="div-item-form">
+                                <div class="form-group">
+                                    <label style="visibility:hidden;" id="lblFormItems">Form Item List</label>
+                                    <table id="tblFormItems" class="table table-striped" name="tblFormItems">
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Value</th>
+                                            <th>Field Type</th>
+                                            <th>Mandate</th>
+                                            <th align="right"></th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-right" style="min-height:80px;">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Views/AddServiceItem.js"></script>
+

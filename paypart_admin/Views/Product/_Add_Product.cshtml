@@ -1,0 +1,112 @@
+﻿@model paypart_admin.ViewModels.BillerViewModel
+@{
+    ViewData["Title"] = "New Biller";
+}
+
+<div id="div-new-fee">
+    <div id="div-fee-form" class="panel panel-default" style="display:normal;">
+        <div class="panel-heading">
+            <label id="label-fee-panel-heading">Set up new product</label>
+        </div>
+        <div class="panel-body">
+            <form role="form" id="form-new-product" action="" name="form-new-product">
+                <fieldset>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Service Category</label>
+                                <select id="ddlProductSC" class="form-control" name="ddlProductSC">
+                                    <option value="0">Select Service Category</option>
+                                </select>
+                                <label id="lblProductSC"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Service</label>
+                                <select id="ddlProductService" class="form-control" name="ddlProductSC">
+                                    <option value="0">Select Service</option>
+                                </select>
+                                <label id="lblProductService"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" id="txtProductTitle" class="form-control" name="txtProductTitle" />
+                                <label id="lblProductTitle"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ddlProductStatus">Status</label>
+                                <select id="ddlProductStatus" class="form-control" name="ddlProductStatus">
+                                    <option value="0">Select Product Status</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">InActive</option>
+                                </select>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Item Name</label>
+                                <input type="text" id="txtItemName" class="form-control" name="txtItemName" />
+                                <label id="lblItemName"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Item Cost</label>
+                                <input type="number" id="txtItemCost" class="form-control" name="txtItemCost" />
+                                <label id="lblItemCost"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Currency</label>
+                                <select id="ddlCurrency" class="form-control" name="ddlCurrency">
+                                    <option value="0">Select Currency</option>
+                                    <option value="NGN">Naira</option>
+                                    <option value="USD">US Dollars</option>
+                                </select>
+                                <label id="lblCurrency"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label style="visibility:hidden;">Item Cost</label><br />
+                                <input type="button" id="btnAddItem" class="btn btn-default" value="Add Item" name="btnAddItem" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="min-height:100px;display:none;" id="div-item-list">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label style="visibility:hidden;" id="lblItemList">Item List</label>
+                                <table id="tblItemFees" class="table table-striped">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Cost</th>
+                                        <th align="right"></th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-12">
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/js/validate.js"></script>

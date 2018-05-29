@@ -1,0 +1,108 @@
+﻿@model paypart_admin.Models.Service
+@{
+    ViewData["Title"] = "Manage Admin";
+}
+
+<div id="div-manage-service">
+    <div id="div-org-search" class="row" style="height:60px;">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="input-group custom-search-form">
+                    <input id="txtSearchOrgs" type="text" class="form-control single-service-name-tag" placeholder="Search biller services...">
+                    <span class="input-group-btn">
+                        <button id="btnSearchOrgs" class="btn btn-primary" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="div-new-term">
+    <div id="div-new-term-form" class="panel panel-default" style="display:normal;">
+        <div class="panel-heading">
+            <label id="label-term-panel-heading">Manage a biller service</label>
+            <input type="hidden" id="hdnServiceId" value="0" />
+            <input type="hidden" id="hdnServiceAccountId" value="0" />
+        </div>
+        <div class="panel-body">
+            <form role="form" id="form-new-service" action="" name="form-new-service">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="categoryid">Service Category</label>
+                                <select id="categoryid" class="form-control" name="categoryid">
+                                    <option value="0">Select Service Category</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Biller</label>
+                                <select id="billerid" class="form-control" name="billerid">
+                                    <option value="0">Select Biller</option>
+                                </select>
+                            </div>
+                            <label id="lblbillerid"></label>
+                        </div>
+                    </div>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" id="title" class="form-control" name="title" />
+                            </div>
+                            <label id="lblServiceTitle"></label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" class="form-control" name="status">
+                                    <option value="0">Select Service Status</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">InActive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="bankcode">Bank</label>
+                                <select id="bankcode" class="form-control" name="serviceaccount.bankcode">
+                                    <option value="0">Select Bank</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Account Number</label>
+                                <input type="number" id="accountnumber" class="form-control" name="serviceaccount.accountnumber" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:80px;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Account Name</label>
+                                <input type="text" id="accountname" class="form-control" name="serviceaccount.accountname" readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-12">
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+@*<script src="~/js/validate.js"></script>*@
+<script src="~/js/Views/AddService.js"></script>
+

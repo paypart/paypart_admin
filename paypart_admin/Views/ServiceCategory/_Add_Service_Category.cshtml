@@ -1,0 +1,46 @@
+﻿@model paypart_admin.Models.ServiceCategory
+@{
+    ViewData["Title"] = "New Service Category";
+}
+<div id="div-new-class">
+    <div id="div-fee-form" class="panel panel-default" style="display:normal;">
+        <div class="panel-heading">
+            <label id="label-fee-panel-heading">Set up new service category</label>
+            <input type="hidden" id="hdnServiceCategoryId" value="0" />
+        </div>
+        <div class="panel-body">
+            <form role="form" id="form-new-service-category" name="form-new-service-category">
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" id="title" class="form-control" name="title" />
+                                <label id="lblSCTitle"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" class="form-control" name="status">
+                                    <option value="0">Select Service Category Status</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">InActive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="min-height:80px;">
+                        <div class="col-md-12">
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/js/Views/AddServiceCategory.js"></script>

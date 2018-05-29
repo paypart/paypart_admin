@@ -1,0 +1,48 @@
+﻿@model paypart_admin.Models.BillerCategory
+@{
+    ViewData["Title"] = "New Biller Category";
+}
+<div>
+    <div id="div-new-org">
+        <div id="div-org-form" class="panel panel-default">
+            <div class="panel-heading">
+                <label id="label-panel-heading">Create a new biller category</label>
+                <input type="hidden" id="hdnBillerCategoryId" value="0" />
+            </div>
+            <div class="panel-body">
+                <form role="form" id="form-new-biller-category" name="form-new-biller-category">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input type="text" id="title" class="form-control" name="title" />
+                                    <label id="lbltitle"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="status">Status</label>
+                                    <select id="status" class="form-control" name="status">
+                                        <option value="0">Select Biller Category Status</option>
+                                        <option value="1">Active</option>
+                                        <option value="2">InActive</option>
+                                    </select>
+                                </div>
+                            </div>                          
+                        </div>
+                        <div class="row" style="height:80px;">
+                            <div class="col-md-12">
+                                <div class="form-group text-right">
+                                    <button type="submit" id="btnSubmitBC" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/js/validate.js"></script>*@
+<script src="~/js/Views/AddBillerCategory.js"></script>
